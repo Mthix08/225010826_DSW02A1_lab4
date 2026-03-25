@@ -48,7 +48,7 @@ function moveToFavorites(event) {
   img.addEventListener("click", revertImage);
 }
 
-// Function to revert image back to original position
+// Function to bring the image back to original position also remove the border
 // function revertImage(event) {
 //   const img = event.target
 //   const index = parseInt(img.dataset.index);
@@ -62,6 +62,7 @@ function moveToFavorites(event) {
 
 function revertImage(event) {
   const img = event.target;
+  img.style.border = ""; //this will remove the border from the image
   const index = parseInt(img.dataset.index);
   const children = picsContainer.children;
   if (index >= children.length) {
