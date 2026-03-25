@@ -29,6 +29,8 @@ function moveToFavorites(event) {
 
   // Move image to favorites
   favorites.appendChild(img);
+  // here we add a visual highlight to the selected image by changing its border color. This provides immediate feedback to the user that the image has been selected as a favorite.
+  img.style.border = "3px solid green";
 
   // here we add a visual highlight to the selected image by changing its border color. This provides immediate feedback to the user that the image has been selected as a favorite.
   const li = document.createElement("li");

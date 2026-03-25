@@ -25,7 +25,8 @@ compareBtn.addEventListener("click", () => {
 
   let differencesFound = false;
 
-  // this part is gonna  checks if the number of lines in both texts is different. If they differ, it adds a message to the list indicating the lengths of  texts.
+  // this part is gonna  checks if the number of lines in both texts is different.
+  //  If they differ, it adds a message to the list indicating the lengths of  texts.
   if (expectedLines.length !== actualLines.length) {
     differencesFound = true;
 
