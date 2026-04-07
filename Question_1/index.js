@@ -1,19 +1,19 @@
 const compareBtn = document.getElementById("compare-btn");
 const clearBtn = document.getElementById("clear-btn");
-const resultsDiv = document.getElementById("result");
+const results = document.getElementById("result");
 
 compareBtn.addEventListener("click", () => {
   // Clear previous results
-  resultsDiv.innerHTML = "";
+  results.innerHTML = "";
 
   const expectedText = document.getElementById("expected").value.trim();
   const actualText = document.getElementById("actual").value.trim();
 
   // This code checks that both input areas have text before comparing them. If either area is empty, it displays a message prompting the user to enter text in both areas before proceeding with the comparison.
-  if (!expectedText || !actualText) {
+  if (expectedText === "" || actualText === "") {
     const msg = document.createElement("li");
     msg.textContent = "Enter text in both areas before comparing.";
-    resultsDiv.appendChild(msg);
+    results.appendChild(msg);
     return;
   }
   // this part is gonna  splits texts into lines for comparison
@@ -60,7 +60,7 @@ compareBtn.addEventListener("click", () => {
   }
 
   // this part is gonna  checks if any differences were found during the comparison. If no differences are found, it adds a message to the list indicating that the texts are identical. If differences are found, it adds a header to the list indicating that the texts are different.
-  if (!differencesFound) {
+  if (differencesFound === false) {
     ol.className = "nochange";
 
     const li = document.createElement("li");
@@ -76,11 +76,11 @@ compareBtn.addEventListener("click", () => {
     ol.prepend(header);
   }
 
-  resultsDiv.appendChild(ol);
+  results.appendChild(ol);
 });
 // here we add an event listener to the "Clear" button that clears the input areas and the results when clicked.
 clearBtn.addEventListener("click", () => {
   document.getElementById("expected").value = "";
   document.getElementById("actual").value = "";
-  resultsDiv.innerHTML = "";
+  results.innerHTML = "";
 });
